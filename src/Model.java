@@ -1,4 +1,3 @@
-package pacman;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,11 +15,11 @@ public class Model extends JPanel implements ActionListener {
     private boolean inGame = false;
     private boolean dying = false;
 
-    private final int BLOCK_SIZE = 24;
+    private final int BLOCK_SIZE = 40;
     private final int N_BLOCKS = 15;
     private final int SCREEN_SIZE = N_BLOCKS * BLOCK_SIZE;
     private final int MAX_GHOSTS = 12;
-    private final int PACMAN_SPEED = 4;
+    private final int PACMAN_SPEED = 2;
 
     private int N_GHOSTS = 6;
     private int lives, score;
@@ -56,7 +55,7 @@ public class Model extends JPanel implements ActionListener {
     private final int validSpeeds[] = {1,2,3,4,5,6,8,10};
     private final int maxSpeed = 10;
 
-    private int currentSpeed = 3;
+    private int currentSpeed = 2;
     private short[] screenData;
     private Timer timer;
 
@@ -66,23 +65,24 @@ public class Model extends JPanel implements ActionListener {
         initVariables();
         addKeyListener(new TAdapter());
         setFocusable(true);
+        setPreferredSize(new Dimension(800, 600));
         initGame();
     }
 
 
     private void loadImages() {
-        down = new ImageIcon("C:/Users/LENOVO/IdeaProjects/pacman1/src/img/down.gif").getImage();
-        up = new ImageIcon("C:/Users/LENOVO/IdeaProjects/pacman1/src/img/up.gif").getImage();
-        left = new ImageIcon("C:/Users/LENOVO/IdeaProjects/pacman1/src/img/left.gif").getImage();
-        right = new ImageIcon("C:/Users/LENOVO/IdeaProjects/pacman1/src/img/right.gif").getImage();
-        ghost = new ImageIcon("C:/Users/LENOVO/IdeaProjects/pacman1/src/img/ghost.gif").getImage();
-        heart = new ImageIcon("C:/Users/LENOVO/IdeaProjects/pacman1/src/img/heart.png").getImage();
+        down = new ImageIcon("images/down.gif").getImage();
+        up = new ImageIcon("images/up.gif").getImage();
+        left = new ImageIcon("images/left.gif").getImage();
+        right = new ImageIcon("images/right.gif").getImage();
+        ghost = new ImageIcon("images/ghost.gif").getImage();
+        heart = new ImageIcon("images/heart.png").getImage();
 
     }
     private void initVariables() {
 
         screenData = new short[N_BLOCKS * N_BLOCKS];
-        d = new Dimension(500, 500);
+        d = new Dimension(800, 600);
         ghost_x = new int[MAX_GHOSTS];
         ghost_dx = new int[MAX_GHOSTS];
         ghost_y = new int[MAX_GHOSTS];
